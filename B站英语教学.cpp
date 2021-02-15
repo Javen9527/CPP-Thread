@@ -411,5 +411,32 @@
   ② package_task::get_future();
   ③ async() return a future;
   
+14. Time constrains
+  ① 总结：
+  /* thread */
+  std::thread t1(func, 6);
   
+  /* Mutex */
+  std::mutex mu;
+  std::lock_guard<mutex> locker(mu);
+  std::unique_lock<mutex> ulocker(mu);
+
+  /* condition variable */
+  std::condition_variable cond;
+  
+  /* Future and promise */
+  std::promise<int> p;
+  std::future<int> fu = p.get_future();
+
+  /* async() */
+  std::future<int> fu = std::async(func, 6);
+
+  /* packaged task */
+  std::packaged_task<int(int)> t(factorial);
+  std::future<int> uf = t.get_future();
+  t(6);
+
+  /* time constrians */
+  std::this_thread::sleep_for(chrono::milliseconds(4));
+
 
