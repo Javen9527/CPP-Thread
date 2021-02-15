@@ -406,7 +406,7 @@
     return 0;
   }
 
-12. 获得future总结
+13. 获得future总结
   ① promise::get_future();
   ② package_task::get_future();
   ③ async() return a future;
